@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import { Context } from "./Context";
+import { Box, createTheme } from "@mui/material";
+import "../src/App.css";
+import Header from "./Components/Header/Header";
+import { Banner } from "./Components/Banner/Banner";
+import { ThemeProvider } from "@emotion/react";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
+  const contexDatos = useContext(Context);
+  console.log(contexDatos.colores.grayDark);
+
+  const theme = createTheme({
+    typography: {
+      fontFamily: ["Roboto"].join(","),
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box sx={{ bgcolor: `${contexDatos.colores.grayDark}`, height: "100vh" }}>
+        <Header />
+        <Banner />
+        <Footer/>
+      </Box>
+    </ThemeProvider>
   );
 }
 
 export default App;
+//
