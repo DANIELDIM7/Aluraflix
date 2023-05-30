@@ -3,9 +3,9 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import Logo from "../../img/logo.pequeño.png";
 import { Context } from "../../Context";
 import { useContext } from "react";
+import Logo from '../../img/logoAlternativo.png'
 // import Botton from "../Boton/Boton";
 // import Button from '@mui/material/Button';
 

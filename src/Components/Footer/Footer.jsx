@@ -1,5 +1,5 @@
 import React from "react";
-import LogoFooter from "../../img/logoFooter.png";
+import Logo from '../../img/logoAlternativo.png'
 import { Box } from "@mui/material";
 import { Context } from "../../Context";
 import { useContext } from "react";
@@ -20,7 +20,7 @@ const Footer = () => {
       }}
     >
       <Box >
-        <img src={LogoFooter} alt="" />
+        <img src={Logo} alt="Logo" />
       </Box>
     </Box>
   );
