@@ -10,6 +10,7 @@ export const ContextProvider = ({ children }) => {
       nombre : "CSS FlexboxFroggy",
       categoria: "Front End",
       url: "https://youtu.be/MXPhyN5t0uQ",
+      urlImage: "http://i3.ytimg.com/vi/MXPhyN5t0uQ/hqdefault.jpg"
     },
     {
       id: uuid(),

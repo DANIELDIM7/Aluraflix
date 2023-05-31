@@ -2,7 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto',
+    font-family: 'Roboto';
+   
+    
 }
+
+/* the slides */
+.slick-slide {
+   margin: 5px;
+    
+    
+    
+}
+.slick-dots li button::before{
+    background-color: rgb(102, 88, 88);
+    color: aliceblue;
+}
+
+/* the parent */
+
 
   

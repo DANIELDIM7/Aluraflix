@@ -1,35 +1,33 @@
-import { Box, Button, Card, Container, Stack, Typography } from "@mui/material";
+import { Box, Button,  Container, Stack, Typography } from "@mui/material";
 import React from "react";
 import FondoBanner from "../../img/backBanner.png";
-import ReactPlayer from "react-player";
+
+import CardVideo from "../Card/CardVideo";
 
 export const Banner = () => {
   return (
     <Box
       sx={{
-        width: "100%",
-        height: "832px",
+        // width: "100%",
+        height: "700px",
         backgroundImage: `url(${FondoBanner})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundSize: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        
       }}
     >
       <Stack
-        
         sx={{
           width: "100%",
-          height: "549px",
           bgcolor: "transparent",
-          padding:'25px'
+          padding: "25px",
         }}
-        direction='row'
-        spacing='2'
+        direction="row"
+        spacing="2"
       >
-        <Container sx={{width: '66xpx'}}>
+        <Container sx={{ width: "66xpx" }}>
           <Button
             variant="contained"
             sx={{ width: "296px", height: "92px", fontSize: "30px" }}
@@ -45,15 +43,9 @@ export const Banner = () => {
             aplicar todos los conocimientos adquiridos en la formación React.
           </Typography>
         </Container>
-        <Box>
-        <ReactPlayer
-        url='https://youtu.be/EB4vWLzfVcI'
-        controls
-        
-        />
-       
-        
-        </Box>
+        <Container>
+          <CardVideo />
+        </Container>
       </Stack>
     </Box>
   );
