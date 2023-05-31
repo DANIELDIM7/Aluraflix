@@ -1,10 +1,22 @@
 import { Box, Button,  Container, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import FondoBanner from "../../img/backBanner.png";
 
 import CardVideo from "../Card/CardVideo";
+import { Context } from "../../Context";
 
 export const Banner = () => {
+
+  const contexDatos = useContext(Context);
+
+  const { videos, equipos } = contexDatos;
+  const videoBanner = videos[videos.length-1]
+  const datosTitulo = equipos.filter((video) => video.titulo === videoBanner.categoria);
+  // Se saca el color primario del equipo correspondiente
+  const valores = datosTitulo[0].colorPrimario;
+  
+ 
+  
   return (
     <Box
       sx={{
@@ -30,9 +42,9 @@ export const Banner = () => {
         <Container sx={{ width: "66xpx" }}>
           <Button
             variant="contained"
-            sx={{ width: "296px", height: "92px", fontSize: "30px" }}
+            sx={{ width: "296px", height: "92px", fontSize: "30px", bgcolor: `${valores}` }}
           >
-            Front End
+            {videoBanner.categoria}
           </Button>
           <Typography variant="h3" fontSize="xl" sx={{ color: "white" }}>
             Challenge React
@@ -44,7 +56,7 @@ export const Banner = () => {
           </Typography>
         </Container>
         <Container>
-          <CardVideo />
+          <CardVideo url={videoBanner.url} />
         </Container>
       </Stack>
     </Box>

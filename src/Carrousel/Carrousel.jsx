@@ -6,44 +6,13 @@ import "slick-carousel/slick/slick-theme.css";
 
 import CardVideo from "../Components/Card/CardVideo";
 
-const Carrousel = ({ isFrontend }) => {
-  // const settings = {
+const Carrousel = (props) => {
+  const { id, titulo, colorPrimario } = props.datos;
+  const { videos } = props;
+  console.log('Estos son los videos', videos)
 
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 3,
-  //   initialSlide: 0,
-  //   responsive: [
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 2,
-  //         infinite: true,
-  //         dots: true
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 600,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 2,
-  //         initialSlide: 2
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 480,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1
-  //       }
-  //     }
-  //   ]
 
-  // };
-  var settings = {
+  const settings = {
     dots: true,
     infinite: false,
     speed: 500,
@@ -53,11 +22,11 @@ const Carrousel = ({ isFrontend }) => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1301,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: false,
           dots: true,
         },
       },
@@ -80,7 +49,9 @@ const Carrousel = ({ isFrontend }) => {
   };
 
   return (
+    
     <Box
+    
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -89,31 +60,16 @@ const Carrousel = ({ isFrontend }) => {
         background: "#191919",
       }}
     >
-      <Button variant="contained" sx={{ width: "365px" }}>
-        Front End
+      <Button
+        variant="contained"
+        sx={{ width: "365px", bgcolor: `${colorPrimario}` }}
+      >
+        {titulo}
       </Button>
       <Slider {...settings}>
-        <div>
-          <CardVideo />
-        </div>
-        <div>
-          <CardVideo />
-        </div>
-        <div>
-          <CardVideo />
-        </div>
-        <div>
-          <CardVideo />
-        </div>
-        <div>
-          <CardVideo />
-        </div>
-        <div>
-          <CardVideo />
-        </div>
-        <div>
-          <CardVideo />
-        </div>
+        {videos.map((video) => (
+          <CardVideo url={video.url} />
+        ))}
       </Slider>
     </Box>
   );

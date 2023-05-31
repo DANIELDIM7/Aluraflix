@@ -3,10 +3,10 @@ import { Context } from "./Context";
 import { Box, createTheme } from "@mui/material";
 import "../src/App.css";
 import Header from "./Components/Header/Header";
-import { Banner } from "./Components/Banner/Banner";
 import { ThemeProvider } from "@emotion/react";
 import Footer from "./Components/Footer/Footer";
 import Home from "./pages/Home";
+import PlayVideo from "./pages/PlayVideo";
 
 function App() {
   const contexDatos = useContext(Context);
@@ -20,9 +20,11 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ bgcolor: `${contexDatos.colores.grayDark}`, height: "100vh" }}>
+      <Box sx={{ bgcolor: `${contexDatos.colores.grayDark}` }}>
         <Header />
-        <Home/>
+        {/* <Home/> */}
+
+        <PlayVideo/>
         
         <Footer/>
       </Box>
