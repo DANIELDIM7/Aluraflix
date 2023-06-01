@@ -9,7 +9,7 @@ import CardVideo from "../Components/Card/CardVideo";
 const Carrousel = (props) => {
   const { id, titulo, colorPrimario } = props.datos;
   const { videos } = props;
-  console.log('Estos son los videos', videos)
+ 
 
 
   const settings = {
@@ -68,7 +68,7 @@ const Carrousel = (props) => {
       </Button>
       <Slider {...settings}>
         {videos.map((video) => (
-          <CardVideo url={video.url} />
+          <CardVideo url={video.url} datos={video} />
         ))}
       </Slider>
     </Box>

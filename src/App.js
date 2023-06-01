@@ -7,6 +7,7 @@ import { ThemeProvider } from "@emotion/react";
 import Footer from "./Components/Footer/Footer";
 import Home from "./pages/Home";
 import PlayVideo from "./pages/PlayVideo";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const contexDatos = useContext(Context);
@@ -19,16 +20,19 @@ function App() {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box sx={{ bgcolor: `${contexDatos.colores.grayDark}` }}>
-        <Header />
-        {/* <Home/> */}
+    <Router>
+      <ThemeProvider theme={theme}>
+        <Box sx={{ bgcolor: `${contexDatos.colores.grayDark}` }}>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/videos/:id" element={<PlayVideo/>}/>
+          </Routes>
 
-        <PlayVideo/>
-        
-        <Footer/>
-      </Box>
-    </ThemeProvider>
+          <Footer />
+        </Box>
+      </ThemeProvider>
+    </Router>
   );
 }
 
