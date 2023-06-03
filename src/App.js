@@ -8,6 +8,7 @@ import Footer from "./Components/Footer/Footer";
 import Home from "./pages/Home";
 import PlayVideo from "./pages/PlayVideo";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NewVideo from "./pages/FormNuevoVideo/NewVideo";
 
 function App() {
   const contexDatos = useContext(Context);
@@ -17,16 +18,21 @@ function App() {
     typography: {
       fontFamily: ["Roboto"].join(","),
     },
+    palette: {
+      mode: 'dark',
+    },
+
   });
 
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Box sx={{ bgcolor: `${contexDatos.colores.grayDark}` }}>
-          <Header />
+        <Box sx={{ bgcolor: 'black' }}>
+          <Header inicial={contexDatos.inicio}/>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/videos/:id" element={<PlayVideo/>}/>
+            <Route path="/nuevoVideo" element={<NewVideo/>}/>
           </Routes>
 
           <Footer />

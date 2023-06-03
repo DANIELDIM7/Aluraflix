@@ -177,6 +177,8 @@ export const ContextProvider = ({ children }) => {
       colorPrimario: "#DC6EBE",
     },
   ]);
+
+  const [inicio, setInicio] =useState(true)
   const values = {
     videos,
     equipos,
@@ -186,6 +188,11 @@ export const ContextProvider = ({ children }) => {
       grayMedium: "#191919",
       bluePrimary: "#2A7AE4",
     },
+    setEquipos,
+    setVideos,
+   inicio,
+   setInicio
+
   };
 
   return <Context.Provider value={values}>{children}</Context.Provider>;
