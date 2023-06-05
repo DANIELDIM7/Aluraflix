@@ -4,12 +4,20 @@ import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 
 const PlayVideo = () => {
-
-  const {id } = useParams()
-  console.log('Esto es el resultado de useparams', id)
+  const { id } = useParams();
+  console.log("Esto es el resultado de useparams", id);
 
   return (
-    <Box sx={{ display: "flex", placeContent: "center", padding: "20px 0" }}>
+    <Box
+      fullwidth
+      sx={{
+        // width: "100%",
+        height: "100vh",
+        display: "flex",
+        placeContent: "center",
+        padding: "20px 0",
+      }}
+    >
       <ReactPlayer controls={true} url={`https://youtu.be/${id}`} />
     </Box>
   );

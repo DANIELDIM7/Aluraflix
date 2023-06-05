@@ -10,7 +10,6 @@ export const ContextProvider = ({ children }) => {
       nombre: "CSS FlexboxFroggy",
       categoria: "Front End",
       url: "https://youtu.be/MXPhyN5t0uQ",
-      urlImage: "http://i3.ytimg.com/vi/MXPhyN5t0uQ/hqdefault.jpg",
     },
     {
       id: uuid(),
@@ -151,7 +150,6 @@ export const ContextProvider = ({ children }) => {
       categoria: "Soft Skills",
       url: "https://youtu.be/vhwspfvI52k",
     },
-    
   ]);
 
   // Equipos
@@ -178,7 +176,9 @@ export const ContextProvider = ({ children }) => {
     },
   ]);
 
-  const [inicio, setInicio] =useState(true)
+  console.log('Estos son los equipos', equipos)
+
+  const [inicio, setInicio] = useState(true);
   const values = {
     videos,
     equipos,
@@ -188,11 +188,14 @@ export const ContextProvider = ({ children }) => {
       grayMedium: "#191919",
       bluePrimary: "#2A7AE4",
     },
-    setEquipos,
-    setVideos,
-   inicio,
-   setInicio
-
+    actualizarVideos(val) {
+      setVideos([...videos, val]);
+    },
+    actualizarEquipos(val) {
+      setEquipos([...equipos,val])
+    },
+    inicio,
+    setInicio,
   };
 
   return <Context.Provider value={values}>{children}</Context.Provider>;
