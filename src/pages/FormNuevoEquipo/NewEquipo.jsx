@@ -3,12 +3,18 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context";
 import { ValidarInput } from "../FormNuevoVideo/validaciones";
 import { v4 as uuid } from "uuid";
+import TablaEquipos from "../../Components/LstaEquipos/TablaEquipos";
 
 const NewEquipo = () => {
   const [nombre, setNombre] = useState({
     value: "",
     valid: null,
   });
+
+  const [descripcion , setDescripcion] = useState({
+    value: '',
+    valid: null
+  })
 
   const [color, setColor] = useState("");
 
@@ -27,7 +33,8 @@ const NewEquipo = () => {
     if (nombre.valid && color.length > 1) {
       let datosAenviar = {
         id: uuid(),
-        titulo: nombre.value, //Convierte la primer letra de cada palagra en mayuscula
+        titulo: nombre.value,
+        descripcion: descripcion.value, //Convierte la primer letra de cada palagra en mayuscula
         colorPrimario: color,
       };
       contexEquipos.actualizarEquipos(datosAenviar);
@@ -37,6 +44,10 @@ const NewEquipo = () => {
   const limpiarFormulario = (e) => {
     e.preventDefault();
     setNombre({
+      value: "",
+      valid: null,
+    });
+    setDescripcion({
       value: "",
       valid: null,
     });
@@ -65,7 +76,7 @@ const NewEquipo = () => {
       </Typography>
       <TextField
         required
-        label="Nombre"
+        label="Nombre (Por favor poner la primer letra de cada palabra en mayúscula"
         variant="outlined"
         fullWidth
         margin="dense"
@@ -77,6 +88,22 @@ const NewEquipo = () => {
           const nombre = input.target.value;
           const valid = ValidarInput(nombre);
           setNombre({ value: nombre, valid: valid });
+        }}
+      />
+      <TextField
+        required
+        label="Descripción"
+        variant="outlined"
+        fullWidth
+        margin="dense"
+        type="text"
+        error={descripcion.valid === false}
+        helperText={descripcion.valid === false && "Ingrese mínimo 3 caracteres"}
+        value={descripcion.value}
+        onChange={(input) => {
+          const descripcion = input.target.value;
+          const valid = ValidarInput(descripcion);
+          setDescripcion({ value: descripcion, valid: valid });
         }}
       />
       <TextField
@@ -108,6 +135,7 @@ const NewEquipo = () => {
           </Button>
         </Box>
       </Box>
+      <TablaEquipos/>
     </Box>
   );
 };

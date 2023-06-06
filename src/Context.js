@@ -157,21 +157,25 @@ export const ContextProvider = ({ children }) => {
     {
       id: uuid(),
       titulo: "Front End",
+      descripcion: 'Los videos que uso para hacer interfaces Front End',
       colorPrimario: "#6BD1FF",
     },
     {
       id: uuid(),
       titulo: "Back End",
+      descripcion: 'Los videos que uso para hacer interfaces Front End',
       colorPrimario: "#6B5BE2",
     },
     {
       id: uuid(),
       titulo: "Machine Learn",
+      descripcion: 'Los videos que uso para hacer interfaces Front End',
       colorPrimario: "#FFBA05",
     },
     {
       id: uuid(),
       titulo: "Soft Skills",
+      descripcion: 'Los videos que uso para hacer interfaces Front End',
       colorPrimario: "#DC6EBE",
     },
   ]);
