@@ -23,7 +23,7 @@ const CardVideo = (props) => {
   return (
     <Link to={`/videos/${enlaceImagen}`}>
       <Card
-        sx={{ maxWidth: 440, border: "2px solid #6BD1FF", borderRadius: "6px" }}
+        sx={{ maxWidth: 440, border: "2px solid #6BD1FF", borderRadius: "6px"  }}
       >
         <CardMedia
           sx={{ height: "260.85px" }}

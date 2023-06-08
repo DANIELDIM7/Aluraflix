@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Container } from "@mui/material";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -13,7 +13,7 @@ const Carrousel = (props) => {
 
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -25,7 +25,7 @@ const Carrousel = (props) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: false,
+          infinite: true,
           dots: true,
         },
       },
@@ -59,12 +59,13 @@ const Carrousel = (props) => {
         background: "#191919",
       }}
     >
-      <Button
-        variant="contained"
-        sx={{ width: "365px", bgcolor: `${colorPrimario}` }}
+      <Container
+        // variant="contained"
+        sx={{ width: "365px", bgcolor: `${colorPrimario}`, height:'60px', display:'flex', justifyContent:'center', alignItems:'center', marginLeft:'0', fontSize:'35px', fontWeight:'400', borderRadius: '4px'}}
+        // size="small"
       >
         {titulo}
-      </Button>
+      </Container>
       <Slider {...settings}>
         {videos.map((video) => (
           <CardVideo url={video.url} datos={video} />

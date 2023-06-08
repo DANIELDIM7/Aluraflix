@@ -10,6 +10,7 @@ import PlayVideo from "./pages/PlayVideo";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NewVideo from "./pages/FormNuevoVideo/NewVideo";
 import NewEquipo from "./pages/FormNuevoEquipo/NewEquipo";
+import EditarEquipo from "./pages/FormNuevoEquipo/EditarEquipo/EditarEquipo";
 
 function App() {
   const contexDatos = useContext(Context);
@@ -35,6 +36,7 @@ function App() {
             <Route path="/videos/:id" element={<PlayVideo/>}/>
             <Route path="/nuevoVideo" element={<NewVideo/>}/>
             <Route path="/nuevoEquipo" element={<NewEquipo/>}/>
+            <Route path="/editarEquipo/:id" element={<EditarEquipo/>}/>
           </Routes>
 
           <Footer />

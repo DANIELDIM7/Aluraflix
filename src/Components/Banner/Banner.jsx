@@ -35,28 +35,30 @@ export const Banner = () => {
           width: "100%",
           bgcolor: "transparent",
           padding: "25px",
+          
+         
         }}
-        direction="row"
+        direction={{ xs: 'column', sm: 'row' }}
         spacing="2"
       >
-        <Container sx={{ width: "66xpx" }}>
+        <Container sx={{ width: "66xpx",display:'flex' , flexDirection:{xs:'column-reverse'} }}>
           <Button
             variant="contained"
-            sx={{ width: "296px", height: "92px", fontSize: "30px", bgcolor: `${valores}` }}
+            sx={{ width:{xs:'150px', sm:'296px'}, height: {xs:'50px', sm:'92px'}, fontSize: {sx:'25px', sm:'30px'}, bgcolor: `${valores}`, fontWeight:{xs:'400'},color:{xs:'white', sm:'black'} } }
           >
             {videoBanner.categoria}
           </Button>
-          <Typography variant="h3" fontSize="xl" sx={{ color: "white" }}>
+          <Typography variant="h3" fontSize="xl" sx={{ color: "white", fontSize:{xs: '27px', sm:'48px'}, fontWeight:{xs:'300', sm:'400'}}}>
             Challenge React
           </Typography>
-          <Typography variant="subtitle1" gutterBottom sx={{ color: "white" }}>
+          <Typography variant="subtitle1" gutterBottom sx={{ color: "white", display:{xs:'none'} }}>
             Este challenge es una forma de aprendizaje. Es un mecanismo donde
             podrás comprometerte en la resolución de un problema para poder
             aplicar todos los conocimientos adquiridos en la formación React.
           </Typography>
         </Container>
-        <Container>
-          <CardVideo url={videoBanner.url} />
+        <Container sx={{display:{sx:'none'}}}>
+          <CardVideo url={videoBanner.url}  />
         </Container>
       </Stack>
     </Box>

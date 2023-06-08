@@ -15,19 +15,19 @@ const Header = (props) => {
   return (
     <>
       {inicial ? (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{  display:{sx:'flex'} }}>
           <AppBar
             position="static"
             sx={{
               bgcolor: `${contexDatos.colores.black}`,
               height: "94px",
               justifyContent: "center",
-              borderBottom: ` 1px solid ${contexDatos.colores.bluePrimary}`,
+              borderBottom: ` 1px solid ${contexDatos.colores.bluePrimary}`
             }}
           >
             <Toolbar>
               
-              <Box component={Link} to={'/'} sx={{ flexGrow: 1 }}>
+              <Box component={Link} to={'/'} sx={{ flexGrow: 1, justifyContent:{xs:'center'} }}>
                 <img src={Logo} alt="" />
               </Box>
             
@@ -40,6 +40,7 @@ const Header = (props) => {
                     borderColor: "white",
                     color: "white",
                     fontFamily: "Roboto",
+                    display: { xs: 'none', md: 'block' }
                   }}
                 >
                   Nuevo Video

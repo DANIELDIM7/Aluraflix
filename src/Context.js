@@ -163,7 +163,7 @@ export const ContextProvider = ({ children }) => {
     {
       id: uuid(),
       titulo: "Back End",
-      descripcion: 'Los videos que uso para hacer interfaces Front End',
+      descripcion: 'Los videos que uso para hacer Back End',
       colorPrimario: "#6B5BE2",
     },
     {
@@ -175,7 +175,7 @@ export const ContextProvider = ({ children }) => {
     {
       id: uuid(),
       titulo: "Soft Skills",
-      descripcion: 'Los videos que uso para hacer interfaces Front End',
+      descripcion: 'Videos para aprender sobre habilidades para el trabajo',
       colorPrimario: "#DC6EBE",
     },
   ]);
@@ -198,6 +198,16 @@ export const ContextProvider = ({ children }) => {
     actualizarEquipos(val) {
       setEquipos([...equipos,val])
     },
+    eliminarEquipo(id){
+      const nuevosEquipos = equipos.filter(
+        (equipo) => equipo.id !== id)
+        setEquipos(nuevosEquipos)
+    },
+    editarEquipo(val){
+ 
+     setEquipos(equipos.map((equipo) => equipo.id === val.id ? {id: val.id, titulo: val.titulo, descripcion: val.descripcion, colorPrimario: val.colorPrimario }: equipo))
+    },
+    
     inicio,
     setInicio,
   };

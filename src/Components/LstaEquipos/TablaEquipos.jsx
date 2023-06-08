@@ -1,5 +1,5 @@
 import {
-    Button,
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -10,9 +10,13 @@ import {
 import React, { useContext } from "react";
 import { Context } from "../../Context";
 
+import EditarEquipo from "../../pages/FormNuevoEquipo/EditarEquipo/EditarEquipo";
+import { Link, Navigate } from "react-router-dom";
+
 const TablaEquipos = () => {
   const ContextEquipos = useContext(Context);
   const equipos = ContextEquipos.equipos;
+  console.log('Estos son los ids iniciales',equipos.id)
 
   return (
     <TableContainer>
@@ -33,8 +37,24 @@ const TablaEquipos = () => {
             >
               <TableCell align="rigth">{equipo.titulo}</TableCell>
               <TableCell align="rigth">{equipo.descripcion}</TableCell>
-              <TableCell align="rigth"><Button variant="outlined">Editar</Button></TableCell>
-              <TableCell align="rigth"><Button variant="outlined" color="secondary">Remove</Button></TableCell>
+              <TableCell align="rigth">
+                <Button
+                  variant="outlined"
+                  component={Link}
+                  to={`/editarEquipo/${equipo.id}`}
+                >
+                  Editar
+                </Button>
+              </TableCell>
+              <TableCell align="rigth">
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={() => ContextEquipos.eliminarEquipo(equipo.id)}
+                >
+                  Remove
+                </Button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
