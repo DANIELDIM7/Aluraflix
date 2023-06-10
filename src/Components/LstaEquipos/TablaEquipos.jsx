@@ -10,8 +10,7 @@ import {
 import React, { useContext } from "react";
 import { Context } from "../../Context";
 
-import EditarEquipo from "../../pages/FormNuevoEquipo/EditarEquipo/EditarEquipo";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const TablaEquipos = () => {
   const ContextEquipos = useContext(Context);
@@ -19,7 +18,8 @@ const TablaEquipos = () => {
   console.log('Estos son los ids iniciales',equipos.id)
 
   return (
-    <TableContainer>
+   
+    <TableContainer sx={{display:{xs:'none', md:'block'}}}>
       <Table sx={{ minWidth: 650, color: "white" }} aria-label="Tabla equipos">
         <TableHead>
           <TableRow>

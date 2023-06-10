@@ -70,10 +70,12 @@ const NewVideo = () => {
         alignItems: "center",
         gap: "30px",
         flexDirection: "column",
-        padding: "40px",
+        padding: {xs:'11px', md:'40px'},
+        height:'110vh'
+      
       }}
     >
-      <Typography variant="h2" sx={{ color: "white" }}>
+      <Typography  sx={{ color: "white", fontSize:{xs:'35px', md:'70px'} }}>
         Nuevo vídeo
       </Typography>
       <TextField
@@ -118,10 +120,9 @@ const NewVideo = () => {
       <Box
         sx={{ width: "100%", display: "flex", justifyContent: "space-between" }}
       >
-        <Box sx={{ display: "flex", gap: "10px" }}>
+        <Box sx={{ display: "flex", gap: "15px" }}>
           <Button
             variant="contained"
-            sx={{ color: "palette.info.dark" }}
             type="submit"
           >
             Guardar

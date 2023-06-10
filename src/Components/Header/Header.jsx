@@ -33,19 +33,22 @@ const Header = (props) => {
             
               
 
-              <Link to={"/nuevoVideo"}>
+            
                 <Button
-                  variant="outlined"
+                component={Link}
+                to={"/nuevoVideo"}
+                  variant="outlined"l
                   sx={{
                     borderColor: "white",
                     color: "white",
                     fontFamily: "Roboto",
-                    display: { xs: 'none', md: 'block' }
+                    display: { xs: 'none', md: 'block' },
+                    
                   }}
                 >
                   Nuevo Video
                 </Button>
-              </Link>
+              
             </Toolbar>
           </AppBar>
         </Box>

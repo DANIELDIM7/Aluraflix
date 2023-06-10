@@ -11,10 +11,10 @@ const NewEquipo = () => {
     valid: null,
   });
 
-  const [descripcion , setDescripcion] = useState({
-    value: '',
-    valid: null
-  })
+  const [descripcion, setDescripcion] = useState({
+    value: "",
+    valid: null,
+  });
 
   const [color, setColor] = useState("");
 
@@ -52,10 +52,7 @@ const NewEquipo = () => {
       valid: null,
     });
     setColor("");
-    
   };
-
-
 
   return (
     <Box
@@ -68,14 +65,14 @@ const NewEquipo = () => {
         alignItems: "center",
         gap: "30px",
         flexDirection: "column",
-        padding: "40px",
+        padding: { xs: "11px", md: "40px" },
+        height: { xs: "100vh", md: "auto" },
       }}
     >
-      <Typography variant="h2" sx={{ color: "white" }}>
+      <Typography sx={{ color: "white", fontSize: { xs: "35px", md: "70px" } }}>
         Nuevo equipo
       </Typography>
       <TextField
-        required
         label="Nombre (Por favor poner la primer letra de cada palabra en mayúscula"
         variant="outlined"
         fullWidth
@@ -98,7 +95,9 @@ const NewEquipo = () => {
         margin="dense"
         type="text"
         error={descripcion.valid === false}
-        helperText={descripcion.valid === false && "Ingrese mínimo 3 caracteres"}
+        helperText={
+          descripcion.valid === false && "Ingrese mínimo 3 caracteres"
+        }
         value={descripcion.value}
         onChange={(input) => {
           const descripcion = input.target.value;
@@ -120,7 +119,11 @@ const NewEquipo = () => {
       />
 
       <Box
-        sx={{ width: "100%", display: "flex", justifyContent: "space-between" }}
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: { xs: "center", md: "space-between" },
+        }}
       >
         <Box sx={{ display: "flex", gap: "10px" }}>
           <Button
@@ -130,12 +133,16 @@ const NewEquipo = () => {
           >
             Guardar
           </Button>
-          <Button variant="contained" color="secondary" onClick={limpiarFormulario}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={limpiarFormulario}
+          >
             Limpiar
           </Button>
         </Box>
       </Box>
-      <TablaEquipos/>
+      <TablaEquipos />
     </Box>
   );
 };

@@ -2,44 +2,34 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 
 import { ValidarInput } from "../../FormNuevoVideo/validaciones";
-import { v4 as uuid } from "uuid";
+
 import { useParams } from "react-router-dom";
 import { Context } from "../../../Context";
 
 const EditarEquipo = () => {
-
- 
   const { id } = useParams();
-  console.log('este es el id',id)
-
-  
- 
+  console.log("este es el id", id);
 
   const contexEquipos = useContext(Context);
-  const datosEquipos = contexEquipos.equipos
-  const filtroEquipo = datosEquipos.filter((equipo) => equipo.id === id)
-
-
-
- 
+  const datosEquipos = contexEquipos.equipos;
+  const filtroEquipo = datosEquipos.filter((equipo) => equipo.id === id);
 
   const [nombre, setNombre] = useState({
     value: filtroEquipo[0].titulo,
     valid: true,
   });
 
-  console.log('este es el nombre inicial', nombre)
+  console.log("este es el nombre inicial", nombre);
   const [descripcion, setDescripcion] = useState({
     value: filtroEquipo[0].descripcion,
     valid: true,
   });
-  console.log('Este es la descripciojn inicial', descripcion)
+  console.log("Este es la descripciojn inicial", descripcion);
 
   const [color, setColor] = useState(filtroEquipo[0].colorPrimario);
-  console.log('Este es el color inicial', color)
+  console.log("Este es el color inicial", color);
   useEffect(() => {
     contexEquipos.setInicio(false);
-    
   });
 
   const manejarEnvio = (e) => {
@@ -52,7 +42,7 @@ const EditarEquipo = () => {
         colorPrimario: color,
       };
       contexEquipos.editarEquipo(datosAenviar);
-      console.log('se hizo clic')
+      console.log("se hizo clic");
     }
   };
 
